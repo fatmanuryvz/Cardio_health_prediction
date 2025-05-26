@@ -11,8 +11,7 @@ import os
 # 📌 src klasörünü Python yoluna ekle
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from fatmanurprojects.fatmanurprojects import DataScience
-import pandas as pd
+
 
 # Başlık
 st.title("🩺 Kalp Hastalığı Tahmin Uygulaması")
