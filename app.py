@@ -57,3 +57,5 @@ if submitted:
         st.error("❌ Kalp hastalığı riski VAR!")
     else:
         st.success("✅ Kalp hastalığı riski YOK.")
+
+st.info("ℹ️ Tahmin %74 doğrulukla yapılmıştır. Bu sonuç yalnızca bir öngörüdür, doktor tavsiyesi yerine geçmez.")
