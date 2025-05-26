@@ -4,7 +4,6 @@ import joblib
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
-from fatmanurprojects import DataScience
 
 class DataScience:
     @staticmethod
@@ -52,7 +51,6 @@ class DataScience:
         print("✅ Doğruluk (Accuracy):", round(acc, 3))
         print("\n📊 Sınıflandırma Raporu:\n", classification_report(y_test, y_pred))
         return model
-
 
     @staticmethod
     def save_model(model, path="cardio_model.pkl"):

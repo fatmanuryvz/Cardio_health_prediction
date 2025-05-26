@@ -1,41 +1,50 @@
-from fatmanurprojects import DataScience
+import sys
+import os
 import pandas as pd
 
-# Veriyi oku
+# 📌 src dizinini Python yoluna ekle
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+
+from fatmanurprojects.DataScience import DataScience
+
+# 📌 Veriyi oku
 df = pd.read_csv(r"C:\Users\Fatmanur\Desktop\cardio_train.csv", sep=";")
 df = DataScience.prepare_cardio_data(df)
 
-# Eksik veri kontrolü ve dağılım görselleştirme
+# 📌 Eksik veri kontrolü ve dağılım görselleştirme
 DataScience.show_missing_data(df)
 DataScience.plot_distribution(df, "age_years")
 DataScience.plot_distribution(df, "bmi")
 
-# Özellikler ve model eğitimi
+# 📌 Özellik listesi
 features = ["age_years", "bmi", "ap_hi", "ap_lo", "cholesterol", "gluc", "smoke", "alco", "active"]
+
+# 📌 Model eğitimi ve kaydetme
 model = DataScience.train_model(df, features)
 DataScience.save_model(model)
 
-# Modeli dosyadan yükle
+# 📌 Kaydedilen modeli dosyadan yükle
 model = DataScience.load_model()
 
-# Kolesterol & Glikoz sınıflandırma fonksiyonları
+# 📌 Kolesterol sınıflandırma
 def classify_cholesterol(value):
     if value < 200:
         return 1
-    elif 200 <= value <= 239:
+    elif value <= 239:
         return 2
     else:
         return 3
 
+# 📌 Glikoz sınıflandırma
 def classify_glucose(value):
     if value < 100:
         return 1
-    elif 100 <= value <= 125:
+    elif value <= 125:
         return 2
     else:
         return 3
 
-# Kullanıcıdan veri al
+# 📌 Kullanıcıdan veri al
 def get_user_input():
     print("🩺 Lütfen aşağıdaki bilgileri giriniz:")
 
@@ -66,8 +75,9 @@ def get_user_input():
 
     return data
 
-# Tahmin yap
+# 📌 Tahmin yap
 sample = get_user_input()
 prediction = model.predict(sample)
 
+# 📌 Sonuç yazdır
 print("\n🔎 Tahmin sonucu:", "🟥 KALP HASTALIĞI VAR" if prediction[0] == 1 else "🟩 KALP HASTALIĞI YOK")
