@@ -76,6 +76,24 @@ def get_user_input():
         "alco": alco,
         "active": active
     }])
+
+
+    def classify_cholesterol(value):
+    if value < 200:
+        return 1  # Normal
+    elif 200 <= value <= 239:
+        return 2  # Orta (borderline high)
+    else:
+        return 3  # Yüksek
+
+def classify_glucose(value):
+    if value < 100:
+        return 1  # Normal
+    elif 100 <= value <= 125:
+        return 2  # Prediyabet
+    else:
+        return 3  # Yüksek / Diyabetik
+
     
     return data
 
