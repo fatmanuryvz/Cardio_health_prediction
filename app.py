@@ -6,7 +6,7 @@ import os
 # src klasörünü yola ekle
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from fatmanurprojects import DataScience
+from fatmanurprojects.DataScience import DataScience  # burası düzeltildi
 
 # Başlık
 st.title("🩺 Kalp Hastalığı Tahmin Uygulaması")
