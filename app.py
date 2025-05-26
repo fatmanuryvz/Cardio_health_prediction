@@ -5,7 +5,8 @@ import os
 
 # src klasörünü yola ekle
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
-from fatmanurprojects.DataScience import DataScience
+
+from fatmanurprojects import DataScience
 
 # Başlık
 st.title("🩺 Kalp Hastalığı Tahmin Uygulaması")
@@ -27,12 +28,15 @@ with st.form("prediction_form"):
 
     submitted = st.form_submit_button("🧠 Tahmin Et")
 
+# Kolesterol değerini sınıflandır
 def classify_cholesterol(val):
     return 1 if val < 200 else 2 if val <= 239 else 3
 
+# Glikoz değerini sınıflandır
 def classify_glucose(val):
     return 1 if val < 100 else 2 if val <= 125 else 3
 
+# Tahmin işlemi
 if submitted:
     df = pd.DataFrame([{
         "age_years": age,
