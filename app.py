@@ -2,6 +2,17 @@ import streamlit as st
 import pandas as pd
 from fatmanurprojects import DataScience
 
+
+
+import sys
+import os
+
+# 📌 src klasörünü Python yoluna ekle
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+
+from fatmanurprojects import DataScience
+import pandas as pd
+
 # Başlık
 st.title("🩺 Kalp Hastalığı Tahmin Uygulaması")
 
